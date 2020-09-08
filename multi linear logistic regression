@@ -1,0 +1,63 @@
+from google.colab import files
+data_to_load = files.upload()
+
+import pandas as pd
+import plotly.express as px
+
+df =pd.read_csv("114.csv")
+
+hours_of_slept = df["Hours_Slept"].tolist()
+hours_studied = df["Hours_studied"].tolist()
+
+fig = px.scatter(x = hours_of_slept,y = hours_studied)
+fig.show()
+
+import plotly.graph_objects as go
+hours_of_slept = df["Hours_Slept"].tolist()
+hours_studied = df["Hours_studied"].tolist()
+
+result = df["results"].tolist()
+colors = []
+for data in result:
+  if(data == 1):
+    colors.append("green")
+  else:
+    colors.append("red")  
+
+fig = go.Figure(data = go.Scatter(
+    x = hours_studied,
+    y = hours_of_slept,
+    mode = "markers",
+    marker = dict(color = colors)
+))
+
+fig.show()
+
+hours = df[["Hours_studied","Hours_Slept"]]
+result = df["results"]
+print(hours)
+print(result)
+from sklearn.model_selection import train_test_split
+hours_train,hours_test,result_train,result_test = train_test_split(hours,result,test_size = 0.25,random_state = 0)
+print(hours_train)
+
+from sklearn.linear_model import LogisticRegression
+
+classifier = LogisticRegression(random_state = 0)
+classifier.fit(hours_train,result_train)
+
+
+results_pred = classifier.predict(hours_test)
+from sklearn.metrics import accuracy_score
+print("accuracy: ",accuracy_score(result_test,results_pred))
+
+from sklearn.preprocessing import StandardScaler
+sc_x = StandardScaler()
+hours_train = sc_x.fit_transform(hours_train)
+user_hours_studied = int(input("hours_studied"))
+hours_slept = int(input("hours_slept"))
+user_test = sc_x.transfrom([[user_hours_studied,hours_slept]])
+user_result_pred = classifier.predict(user_test)
+ if user_result_pred[0] == 1: print("This user may pass!") 
+      
+ else: print("This user may not pass!"
