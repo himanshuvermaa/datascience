@@ -40,8 +40,8 @@ sns.scatterplot(X[y_kmeans == 2,0],X[y_kmeans == 2,1],color = "pink",label = "cl
 
 sns.scatterplot(kmeans.cluster_centers_[:,0],kmeans.cluster_centers_[:,1],color = "red",label = "centroid",s = 100,markers=",")
 plt.grid(False)
-plt.title("cluster of flowers")
-plt.xlabel("petals's size")
-plt.ylabel("sepal size")
+plt.title("clusters")
+plt.xlabel("star")
+plt.ylabel("light")
 plt.legend()
 plt.show()
