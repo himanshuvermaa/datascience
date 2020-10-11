@@ -27,4 +27,6 @@
 
 
 <h2>Coding done withtin python and jupiter notebook language.</h2>
+#COPYRIGHT HIMANSHU VERMA 2020
+HEXPO 2020
 
