@@ -1,6 +1,6 @@
 <h1>DATASCIENCE</h1>
 <h2>NOW RELEASED YOU CAN USE IT FOR FREE!!!!</h2>
-.
+
 ![8703a91c-06a9-49c3-b85b-b91febedc279](https://user-images.githubusercontent.com/59117342/95676231-2ebf5800-0bda-11eb-8315-809ae9cab53e.png)
 
 ![5e1ea0d4-b6ad-4442-ab37-3245cafa07d0](https://user-images.githubusercontent.com/59117342/95676234-341ca280-0bda-11eb-8632-8badac38487b.png)
